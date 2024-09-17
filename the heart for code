@@ -1,0 +1,42 @@
+
+import java.awt.*;
+import javax.swing.*;
+// Create a constructor method
+
+public class DisplayGraphMain extends JPanel {
+
+    public DisplayGraphMain() {
+        super();
+    }
+
+    /* Create a paintComponent() method to override the one in
+JPanel.This is where the drawing happens. We don't have
+to call it in our program, it gets called automatically
+whenever the panel needs to be redrawn, like when it is
+made visible or moved or whatever.
+     */
+    public void paintComponent(Graphics g) {
+        //Sets the color of the g.draws that follow
+        g.setColor(Color.red);
+        g.fillOval(50, 50, 60, 60);
+        g.fillPolygon(new int[] {50, 160, 110}, new int[] {86, 86, 200}, 3);
+        g.fillOval(100, 50, 60, 60);
+        
+        
+        
+    }
+
+    public static void main(String arg[]) {
+        JFrame frame = new JFrame("BasicJPanel");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+// Create a new identifier for a BasicJPanel called "panel",
+// then create a new BasicJPanel object for it to refer to.
+        DisplayGraphMain panel = new DisplayGraphMain();
+// Make the panel object the content pane of the JFrame.
+// This puts it into the drawable area of frame, and now
+// we do all our drawing to panel, using paintComponent(), above.
+        frame.setContentPane(panel);
+        frame.setVisible(true);
+    }
+}
